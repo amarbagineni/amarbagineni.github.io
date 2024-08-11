@@ -1,8 +1,8 @@
+
 let selectedTag = null;
 
 function generateBlogSummaries() {
     const placeholder = document.getElementById("placeholder-blogs");
-    const filterContainer = document.getElementById("filter-container");
     placeholder.innerHTML = ""; // Clear existing content
 
     // Filtered articles
@@ -13,22 +13,21 @@ function generateBlogSummaries() {
     filteredBlogs.forEach(blog => {
         // Create container
         const blogContainer = document.createElement("div");
-        blogContainer.className = "bg-white border border-gray-300 rounded-lg mb-4 p-4";
 
         // Create title and date container
         const titleDateContainer = document.createElement("div");
-        titleDateContainer.className = "flex justify-between items-center";
+        titleDateContainer.className = "title-date-container";
 
         // Create title link
         const titleLink = document.createElement("a");
         titleLink.href = blog.link;
         titleLink.innerText = blog.title;
-        titleLink.className = "text-lg font-semibold text-blue-600 hover:underline";
+        titleLink.className = "title-link";
         titleLink.target = "_blank"; // Open in a new tab
 
         // Create date element
         const dateElement = document.createElement("div");
-        dateElement.className = "text-sm text-gray-500";
+        dateElement.className = "date-element";
         dateElement.innerText = new Date(blog.date).toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'long',
@@ -41,10 +40,10 @@ function generateBlogSummaries() {
 
         // Create tags container
         const tagsContainer = document.createElement("div");
-        tagsContainer.className = "mt-2";
+        tagsContainer.className = "tags-container";
         blog.tags.forEach(tagId => {
             const tag = document.createElement("span");
-            tag.className = "inline-block bg-blue-600 text-white text-xs px-2 py-1 rounded-full mr-2 cursor-pointer";
+            tag.className = `tag tag-${tagId}`;
             tag.innerText = tags[tagId];
             tag.onclick = () => {
                 selectedTag = tagId;
@@ -54,12 +53,23 @@ function generateBlogSummaries() {
             tagsContainer.appendChild(tag);
         });
 
+        // Create summary element
+        const summaryElement = document.createElement("p");
+        summaryElement.className = "summary";
+        summaryElement.innerText = blog.summary;
+
         // Append elements to blog container
         blogContainer.appendChild(titleDateContainer);
         blogContainer.appendChild(tagsContainer);
+        blogContainer.appendChild(summaryElement);
 
         // Append blog container to placeholder
         placeholder.appendChild(blogContainer);
+
+        // Add a separator line between blog entries
+        const separator = document.createElement("div");
+        separator.className = "separator";
+        placeholder.appendChild(separator);
     });
 }
 
@@ -69,7 +79,7 @@ function renderFilter() {
 
     if (selectedTag) {
         const filterPill = document.createElement("div");
-        filterPill.className = "inline-block bg-gray-200 text-gray-700 text-xs px-3 py-1 rounded-full cursor-pointer";
+        filterPill.className = "filter-pill";
         filterPill.innerText = `${tags[selectedTag]} ×`;
         filterPill.onclick = () => {
             selectedTag = null;

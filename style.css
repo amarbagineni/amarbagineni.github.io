@@ -1,57 +1,106 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
-    color: #333;
+    background-color: #f3f4f6;
     padding: 20px;
+    margin: 0 auto;
+    color: #4a4a4a; /* Dark grey */
+    width: 1000px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #d87c3f; /* Orange */
+}
+
+.quote {
+    text-align: center;
+    font-style: italic;
+    color: #6b7280;
+    margin-bottom: 30px;
+    font-size: 1.25rem;
 }
 
 #placeholder-blogs {
-    list-style: none;
-    padding: 0;
+    margin-top: 20px;
 }
 
-.blog-container {
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    padding: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease-in-out;
-}
-
-.blog-container:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.blog-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: #007BFF;
-    text-decoration: none;
+.title-date-container {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.blog-title:hover {
+.title-link {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #d87c3f; /* Orange */
+    text-decoration: none;
+}
+
+.title-link:hover {
     text-decoration: underline;
 }
 
+.date-element {
+    font-size: 0.875rem;
+    color: #a16207; /* Brown */
+    margin-left: 20px;
+}
+
 .tags-container {
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
-.blog-tag {
+.tag {
     display: inline-block;
-    background-color: #007BFF;
-    color: #fff;
+    color: #ffffff;
+    font-size: 0.75rem;
     padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    margin-right: 5px;
+    border-radius: 9999px;
+    margin-right: 8px;
+    cursor: pointer;
 }
 
-.blog-date {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #777;
+.tag-1 {
+    background-color: #d87c3f; /* Orange */
+}
+
+.tag-2 {
+    background-color: #a16207; /* Brown */
+}
+
+.tag-3 {
+    background-color: #8a6d3b; /* Darker brown */
+}
+
+.tag-4 {
+    background-color: #4b5563; /* Grey */
+}
+
+.filter-container {
+    margin-bottom: 16px;
+}
+
+.filter-pill {
+    display: inline-block;
+    background-color: #e5e7eb;
+    color: #374151;
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    cursor: pointer;
+}
+
+.summary {
+    font-size: .9rem;
+    color: #4a4a4a; /* Dark grey */
+    margin-top: 12px;
+    font-style: italic;
+}
+
+.separator {
+    border-bottom: 1px solid #d1d5db;
+    margin: 20px 0;
 }
