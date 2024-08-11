@@ -14,21 +14,6 @@
             margin: 0;
         }
 
-        h1 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: #1d4ed8;
-        }
-
-        .quote {
-            text-align: center;
-            font-style: italic;
-            color: #6b7280;
-            margin-bottom: 30px;
-            font-size: 1.25rem;
-        }
-
         #placeholder-blogs {
             margin-top: 20px;
         }
@@ -39,7 +24,6 @@
             border-radius: 0.5rem;
             padding: 16px;
             margin-bottom: 16px;
-            border-top: 4px solid #1d4ed8;
         }
 
         .title-date-container {
@@ -49,7 +33,7 @@
         }
 
         .title-link {
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             font-weight: 600;
             color: #1d4ed8;
             text-decoration: none;
@@ -62,7 +46,6 @@
         .date-element {
             font-size: 0.875rem;
             color: #6b7280;
-            margin-left: 20px;
         }
 
         .tags-container {
@@ -93,24 +76,10 @@
             border-radius: 9999px;
             cursor: pointer;
         }
-
-        .summary {
-            font-size: .8rem;
-            color: #646e80;
-            margin-top: 12px;
-        }
-
-        .separator {
-            border-bottom: 1px solid #d1d5db;
-            margin: 20px 0;
-        }
     </style>
 </head>
 
 <body>
-    <h1>Amar's Blog</h1>
-    <p class="quote">"Exploring the depths of thought, code, and life."</p>
-
     <!-- Filter Container -->
     <div id="filter-container" class="filter-container"></div>
 
@@ -132,32 +101,7 @@
                 title: "A Canvas of Thoughts",
                 tags: [1],
                 link: "https://handy-iguanadon-b8c.notion.site/A-canvas-of-thoughts-a3f79362768747ab8a7375b9d9e40cf3",
-                date: "August 11, 2024 9:05 PM",
-                summary: "Delve into the intricate patterns of the human mind, where thoughts flow like paint on a canvas. This post explores the complexity and beauty of introspection."
-            },
-            {
-                id: "2",
-                title: "The Future of Software",
-                tags: [2, 1],
-                link: "https://handy-iguanadon-b8c.notion.site/The-future-of-software-a3f79362768747ab8a7375b9d9e40cf4",
-                date: "July 28, 2024 4:22 PM",
-                summary: "An exploration of emerging trends in software development, focusing on new paradigms that are shaping the future of technology."
-            },
-            {
-                id: "3",
-                title: "A Culinary Journey",
-                tags: [3],
-                link: "https://handy-iguanadon-b8c.notion.site/A-culinary-journey-a3f79362768747ab8a7375b9d9e40cf5",
-                date: "June 15, 2024 2:15 PM",
-                summary: "Join me on a journey through flavors and cultures as I explore the world through food and travel, savoring each moment and taste."
-            },
-            {
-                id: "4",
-                title: "Building a Business",
-                tags: [4],
-                link: "https://handy-iguanadon-b8c.notion.site/Building-a-business-a3f79362768747ab8a7375b9d9e40cf6",
-                date: "May 22, 2024 11:05 AM",
-                summary: "Insights and strategies for aspiring entrepreneurs looking to build a successful business from the ground up."
+                date: "August 11, 2024 9:05 PM"
             }
         ];
 
@@ -216,23 +160,12 @@
                     tagsContainer.appendChild(tag);
                 });
 
-                // Create summary element
-                const summaryElement = document.createElement("p");
-                summaryElement.className = "summary";
-                summaryElement.innerText = blog.summary;
-
                 // Append elements to blog container
                 blogContainer.appendChild(titleDateContainer);
                 blogContainer.appendChild(tagsContainer);
-                blogContainer.appendChild(summaryElement);
 
                 // Append blog container to placeholder
                 placeholder.appendChild(blogContainer);
-
-                // Add a separator line between blog entries
-                const separator = document.createElement("div");
-                separator.className = "separator";
-                // placeholder.appendChild(separator);
             });
         }
 
