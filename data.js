@@ -9,20 +9,19 @@
 var myStructure = [
     {
         id: "1",
-        title: "A Canvas of Thoughts",
-        tags: [1],
-        link: "https://handy-iguanadon-b8c.notion.site/A-canvas-of-thoughts-a3f79362768747ab8a7375b9d9e40cf3",
-        date: "August 11, 2024 9:05 PM",
-        summary: "Delve into the intricate patterns of the human mind, where thoughts flow like paint on a canvas. This post explores the complexity and beauty of introspection."
-    },
-   
-   {
-        id: "2",
         title: "The Vision for Perfection",
-        tags: [2],
+        tags: [1],
         link: "https://handy-iguanadon-b8c.notion.site/The-Vision-for-perfection-29e4bb8b79ce80ed9cb9f8e2deb33322",
         date: "November 1, 2025 3:24 PM",
         summary: "What do you need to create something that lasts?"
+    },
+    {
+        id: "2",
+        title: "A Canvas of Thoughts",
+        tags: [2],
+        link: "https://handy-iguanadon-b8c.notion.site/A-canvas-of-thoughts-a3f79362768747ab8a7375b9d9e40cf3",
+        date: "August 11, 2024 9:05 PM",
+        summary: "Delve into the intricate patterns of the human mind, where thoughts flow like paint on a canvas. This post explores the complexity and beauty of introspection."
     },
     {
         id: "3",
