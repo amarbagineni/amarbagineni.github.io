@@ -12,7 +12,7 @@ var myStructure = [
         tags: [2],
         link: "https://handy-iguanadon-b8c.notion.site/The-Future-of-Software-A-Car-Not-a-Teleportation-Machine-3084bb8b79ce81a8a1c2d0fff86bb156",
         localLink: "articles/future-of-software.html",
-        date: "February 16, 2026 12:00 AM",
+        date: "February 16, 2026 2:10 AM",
         summary: "A reflection on AI tools, software economics, and why human ingenuity still matters."
     },
     {
@@ -48,7 +48,7 @@ var myStructure = [
         tags: [3],
         link: "https://handy-iguanadon-b8c.notion.site/Manila-Batangas-A-Note-on-the-Philippines-3084bb8b79ce8121b342e8801a014d91",
         localLink: "articles/manila-batangas.html",
-        date: "Jul 29, 2024",
+        date: "Jul 29, 2024 7:00 PM",
         summary: "A personal note on Manila, Batangas, and the warmth of the Filipino people."
     },
     {
@@ -57,7 +57,7 @@ var myStructure = [
         tags: [4],
         link: "https://handy-iguanadon-b8c.notion.site/What-Does-a-Business-Even-Mean-3084bb8b79ce81d9a7aec4796cd1cc1a",
         localLink: "articles/what-does-business-mean.html",
-        date: "Jul 16, 2024",
+        date: "Jul 16, 2024 12:00 AM",
         summary: "A note on curiosity, building, and the question of what a business really is."
     },
     {
@@ -66,7 +66,7 @@ var myStructure = [
         tags: [3],
         link: "https://handy-iguanadon-b8c.notion.site/Why-Bangalore-Feels-Like-Home-3084bb8b79ce81be815dc6f5fe9caed7",
         localLink: "articles/why-bangalore.html",
-        date: "Jul 16, 2023",
+        date: "Jul 16, 2023 2:00 PM",
         summary: "A personal note on why Bangalore."
     }
 ];
