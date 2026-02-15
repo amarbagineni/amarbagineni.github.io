@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Future of Software: A Car, Not a Teleportation Machine — Amar's Blog</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" type="text/css" href="../article.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+   <nav class="article-nav">
+    <a href="../index.html">&larr; Back to all posts</a>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">☀️</button>
+</nav>
+
+
+    <div class="article-header">
+        <div class="article-meta">
+            <span class="tag tag-2">Software, data and applications</span>
+            <span class="article-date">February 16, 2026</span>
+        </div>
+        <h1>The Future of Software: A Car, Not a Teleportation Machine</h1>
+        <p class="article-desc">A reflection on AI tools, software economics, and why human ingenuity still matters.</p>
+    </div>
+
+    <div class="article-rule"><hr></div>
+
+    <div class="article-body">
+
+        <h1>The Economics of Building Software Today</h1>
+        <p>If you're thinking about building AI apps, consider this: AI app margins hover around 30–40%. A well-built B2B SaaS product? 80%. The math is clear. Instead of chasing AI-first products, build genuinely great SaaS.. and enhance it with AI where it makes sense.</p>
+        <p>A truly valuable piece of software should be valuable even without AI. If you strip the AI layer away and your product collapses, you don't have a product.. you have a wrapper. This isn't a stance against AI. It's just economics. If you want to operate in the 80%+ margin bracket, your core product has to stand on its own.</p>
+
+        <h1>What I've Actually Seen</h1>
+        <p>I've been deep in the AI tooling world. I've worked with Llama, Qwen, Mistral, and the smaller models. I've used Cursor, Claude, Codex. And yesterday evening, something clicked.</p>
+        <p>Yes, these tools generate code fast. Impressively fast. But wiring that output into something production-ready is still a real challenge. When I compare this to how I used to build applications before 2022, the old way was more reliable in a specific sense.. every small module was tested, understood, and you knew exactly how everything flowed.</p>
+        <p>Now, things are quicker. But handling complexity is the bottleneck. LLMs can generate hundreds of files at once. How much of that do you actually understand? Would you be able to debug it end-to-end if something broke at 2 AM?</p>
+
+        <h1>A Car Over a Horse Carriage</h1>
+        <p>This is where we are. What we have right now is a car.. not a teleporting machine.</p>
+        <p>Teleportation has been a vision since science fiction existed. And yet, for personal everyday transport, we're still at cars. That's exactly where AI tooling sits today. We've built something that emulates human thought remarkably well. But there are edge cases where it cannot match human ingenuity.. the way we hold complexity in our heads, the intuition we bring to system design, the understanding of <em>why</em> something should be built a certain way.</p>
+
+        <h1>Why This Makes Me Happy</h1>
+        <p>I'm not delighted because AI isn't good enough. It's extremely good. I'm delighted because I finally understand what it actually <em>is</em>.</p>
+        <p>We have a tool that lets us do what we used to do.. but faster. That's powerful. But the talent, the understanding of how systems work, the deep coding knowledge.. all of that is still essential. If you never learn the basics, if you never understand how things came to be, how will you ever invent?</p>
+
+        <h1>A Note to Myself</h1>
+        <p>I'm very confident that AI is a tool.. a remarkable one.. and not an existential threat to software careers. Instead of being scared, I'm excited. We've invented something that is a great assistant.</p>
+        <p><strong>Does this app solve a real problem without AI?</strong></p>
+        <p>If the answer is no.. relax. That's not replacing your job.</p>
+        <p>Optimism makes me happy. Maybe it's just a choice. But it's my choice, and I'm happy with it.</p>
+        <p>To whoever is reading this.. good luck, and have a good life.</p>
+
+    </div>
+
+    <div class="article-footer">
+        <div class="article-footer-inner">
+            <span>&copy; 2026</span>
+            <span class="footer-dot"></span>
+            <span>Amar Bagineni</span>
+        </div>
+    </div>
+
+    <script>
+function toggleTheme() {
+    const html = document.documentElement;
+    const current = html.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    document.querySelectorAll('.theme-toggle').forEach(btn => {
+        btn.textContent = next === 'dark' ? '☀️' : '🌙';
+    });
+}
+(function() {
+    const saved = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', saved);
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.theme-toggle').forEach(btn => {
+            btn.textContent = saved === 'dark' ? '☀️' : '🌙';
+        });
+    });
+})();
+</script>
+</body>
+</html>

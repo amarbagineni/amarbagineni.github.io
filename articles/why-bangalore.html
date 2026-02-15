@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangalore and Mumbai — Amar's Blog</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" type="text/css" href="../article.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav class="article-nav">
+    <a href="../index.html">&larr; Back to all posts</a>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">☀️</button>
+</nav>
+
+    <div class="article-header">
+        <div class="article-meta">
+            <span class="tag tag-3">Travel and Food</span>
+            <span class="article-date">February 16, 2026</span>
+        </div>
+        <h1>Bangalore (And Mumbai)</h1>
+        <p class="article-desc">A personal note on why Bangalore feels like home, and the cities that shaped everything around it.</p>
+    </div>
+
+    <div class="article-rule"><hr></div>
+
+    <div class="article-body">
+
+        <h1>Why Bangalore</h1>
+        <p>I was born in Bangalore. That alone doesn't mean much.. I've lived in enough cities to know that where you're born doesn't automatically become where you belong. My father got transferred often, so as a kid I moved through more states than most people visit on vacation. Delhi, Amritsar, Ajmer, Nasirabad, Jammu, Katra, Leh, Bareilly, Hyderabad, Mumbai.. I've seen a fair share of India before I was old enough to have a say in where I lived.</p>
+        <p>But somehow, I kept returning to Bangalore. For school, for work, for life. And at some point it stopped being the place I returned to and just became home.</p>
+
+        <h1>The Early Exploring</h1>
+        <p>I was in fifth standard, studying at Army Public School on Kamaraj Road, near MG Road. That's when I learned to take my bicycle and just ride everywhere. No destination, no plan.. just ride and see what's there. That instinct never left me. Exploring has always been the thing that makes me feel most alive.</p>
+        <p>I've seen Bangalore dry out and come back to what it is now. I've watched neighbourhoods change, roads widen, lakes disappear and sometimes return. The city has layers if you've been here long enough to notice them.</p>
+
+        <h1>Indiranagar, Jayanagar, and the Canopy Road</h1>
+        <p>The areas I've spent the most time in are Indiranagar and Jayanagar.. Raja Rajeshwari Nagar area included. Indiranagar especially. It's where I've eaten at more restaurants than I can count, walked more streets than I can name, and spent more evenings than I probably should have.</p>
+        <p>And then there's the HAL Airport Road canopy.. that stretch of road lined with trees that forms an arch over you as you drive through. I used to take that road to work at Deloitte, and every single time it felt like the city was showing off a little. That drive never got old.</p>
+
+        <h1>The Cafe Journey</h1>
+        <p>In 2015, something shifted. I was staying in Hyderabad at the time, and there was a house construction underway that I was looking over. But I would take time to visit every new cafe in Bangalore whenever I was back. That's when I started eating at places outside home a lot.. and from then on, it became a thing. Every week, at least one new place. A new restaurant, a new cafe, a new hole-in-the-wall. It's been years now and I still do it. The city keeps opening new places faster than I can visit them, which is part of why it works.</p>
+
+        <h1>The Traffic Reality</h1>
+        <p>A lot of people travel to Bangalore and complain about the traffic. I get it. But having been in the city for so long, I've learned to not touch the places with traffic. I know the roads, the timings, the shortcuts. It was never a problem for me.. until recently, when work required me to go to Whitefield regularly. That's when I understood firsthand what a real pain it is. The commute is genuinely brutal if you're crossing the city. But on my own terms, I always know how to get around.</p>
+
+        <h1>What's Around</h1>
+        <p>One of the things I love most about Bangalore is what surrounds it. Karnataka in general has so many hidden gems, especially across the Western Ghats. Weekend drives, small towns, waterfalls, temples, coffee estates.. you can get out of the city and be somewhere completely different in three hours. Although I've spent many years here, I still think there's a lot I haven't seen. And that's exciting, not frustrating.</p>
+
+        <h1>Mumbai</h1>
+        <p>I have to talk about Mumbai here because it would be dishonest not to. I love Mumbai. The people, the culture, the vibe, the energy it gives you as soon as you step out of the station. I used to travel there and stay in hostels, which is actually what I love most about it.. that raw, shared, everyone-is-figuring-it-out energy.</p>
+        <p>I owe a lot to people from Mumbai. A lot. For their kindness, for their sincerity, for showing up when it mattered. Mumbai taught me things about people that no other city has.</p>
+        <p>But Bangalore feels like home. Mumbai energizes me. Bangalore settles me. Both are necessary, but one is where I keep coming back to.</p>
+
+        <h1>A Note to Myself</h1>
+        <p>The college experience here was the most mediocre thing I've been through. But the city is not bad. The city has never been bad. It gave me space to explore, to eat well, to ride a bicycle as a kid and drive through tree canopies as an adult. It gave me Indiranagar evenings and weekend drives to the Ghats.</p>
+        <p>I've been to enough places to know that home is not about perfection. It's about familiarity, comfort, and the feeling that you can always find a new cafe you haven't tried yet.</p>
+        <p>Bangalore gives me that. And I think it always will.</p>
+
+    </div>
+
+    <div class="article-footer">
+        <div class="article-footer-inner">
+            <span>&copy; 2026</span>
+            <span class="footer-dot"></span>
+            <span>Amar Bagineni</span>
+        </div>
+    </div>
+    <script>
+function toggleTheme() {
+    const html = document.documentElement;
+    const current = html.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    document.querySelectorAll('.theme-toggle').forEach(btn => {
+        btn.textContent = next === 'dark' ? '☀️' : '🌙';
+    });
+}
+(function() {
+    const saved = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', saved);
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.theme-toggle').forEach(btn => {
+            btn.textContent = saved === 'dark' ? '☀️' : '🌙';
+        });
+    });
+})();
+</script>
+</body>
+</html>

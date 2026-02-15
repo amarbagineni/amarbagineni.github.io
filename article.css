@@ -1,0 +1,196 @@
+/* ─── Article Page Styles (inherits base tokens from style.css) ─── */
+
+.article-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.article-nav a {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: opacity var(--ease);
+}
+
+.article-nav a:hover { opacity: 0.7; }
+
+.article-header {
+    max-width: var(--max-w);
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem 2rem 2rem;
+}
+
+.article-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.article-date {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--text-dim);
+    letter-spacing: 0.04em;
+}
+
+.article-header h1 {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.6rem;
+}
+
+.article-header h1 em {
+    color: var(--accent);
+}
+
+.article-desc {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    font-weight: 300;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.article-rule {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.article-rule hr {
+    border: none;
+    height: 1px;
+    background: var(--rule);
+}
+
+.article-body {
+    max-width: var(--max-w);
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 2rem 4rem;
+}
+
+.article-body h1,
+.article-body h2 {
+    font-family: var(--serif);
+    font-weight: 700;
+    color: var(--text);
+    margin: 2.5rem 0 0.75rem;
+    line-height: 1.25;
+}
+
+.article-body h1 { font-size: 1.5rem; }
+.article-body h2 { font-size: 1.25rem; }
+
+.article-body h1:first-child,
+.article-body h2:first-child {
+    margin-top: 0;
+}
+
+.article-body p {
+    font-family: var(--sans);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+}
+
+.article-body strong {
+    font-weight: 500;
+    color: var(--text);
+}
+
+.article-body em {
+    font-style: italic;
+    color: var(--text);
+}
+
+.article-body ul, .article-body ol {
+    padding-left: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.article-body li {
+    font-family: var(--sans);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.75;
+    margin-bottom: 0.35rem;
+}
+
+.article-body code {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--rule);
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    color: var(--accent);
+}
+
+.article-body pre {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+}
+
+.article-body pre code {
+    color: var(--text);
+}
+
+.article-body code {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    color: var(--accent);
+}
+
+.article-body blockquote {
+    border-left: 2px solid var(--accent);
+    padding: 0.5rem 0 0.5rem 1rem;
+    margin: 1rem 0 1.5rem;
+}
+
+.article-body blockquote p {
+    font-size: 0.88rem;
+    color: var(--text);
+    font-weight: 400;
+    margin-bottom: 0.25rem;
+}
+
+.article-footer {
+    max-width: var(--max-w);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem 2.5rem;
+}
+
+.article-footer-inner {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    letter-spacing: 0.04em;
+}
+
+@media (max-width: 700px) {
+    .article-nav, .article-header, .article-body, .article-rule, .article-footer {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+}

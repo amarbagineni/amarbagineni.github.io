@@ -1,5 +1,27 @@
 let selectedTag = null;
 
+function renderTagButtons() {
+    const container = document.getElementById("tag-buttons");
+    container.innerHTML = "";
+
+    Object.keys(tags).forEach(tagId => {
+        const btn = document.createElement("button");
+        btn.className = `tag-btn tag-btn-${tagId}`;
+        btn.innerText = tags[tagId];
+        if (selectedTag === parseInt(tagId)) {
+            btn.classList.add("active");
+        }
+        btn.onclick = () => {
+            const id = parseInt(tagId);
+            selectedTag = selectedTag === id ? null : id;
+            renderTagButtons();
+            renderFilter();
+            generateBlogSummaries();
+        };
+        container.appendChild(btn);
+    });
+}
+
 function generateBlogSummaries() {
     const placeholder = document.getElementById("placeholder-blogs");
     placeholder.innerHTML = "";
@@ -9,56 +31,54 @@ function generateBlogSummaries() {
         : myStructure;
 
     filteredBlogs.forEach(blog => {
-        const blogContainer = document.createElement("div");
-        blogContainer.className = "blog-entry";
+        const entry = document.createElement("div");
+        entry.className = "blog-entry";
 
-        const titleDateContainer = document.createElement("div");
-        titleDateContainer.className = "title-date-container";
+        const left = document.createElement("div");
+        left.className = "entry-left";
 
         const titleLink = document.createElement("a");
-        titleLink.href = blog.link;
+        titleLink.href = blog.localLink || blog.link;
         titleLink.innerText = blog.title;
         titleLink.className = "title-link";
-        titleLink.target = "_blank";
+        if (!blog.localLink) titleLink.target = "_blank";
 
-        const dateElement = document.createElement("div");
-        dateElement.className = "date-element";
-        dateElement.innerText = new Date(blog.date).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        });
+        const summaryEl = document.createElement("span");
+        summaryEl.className = "summary";
+        summaryEl.innerText = blog.summary;
 
-        titleDateContainer.appendChild(titleLink);
-        titleDateContainer.appendChild(dateElement);
+        left.appendChild(titleLink);
+        left.appendChild(summaryEl);
 
-        const tagsContainer = document.createElement("div");
-        tagsContainer.className = "tags-container";
+        const tagCell = document.createElement("div");
+        tagCell.className = "entry-tag";
         blog.tags.forEach(tagId => {
             const tag = document.createElement("span");
             tag.className = `tag tag-${tagId}`;
             tag.innerText = tags[tagId];
-            tag.onclick = () => {
+            tag.onclick = (e) => {
+                e.stopPropagation();
                 selectedTag = tagId;
+                renderTagButtons();
                 renderFilter();
                 generateBlogSummaries();
             };
-            tagsContainer.appendChild(tag);
+            tagCell.appendChild(tag);
         });
 
-        const summaryElement = document.createElement("p");
-        summaryElement.className = "summary";
-        summaryElement.innerText = blog.summary;
+        const dateEl = document.createElement("div");
+        dateEl.className = "date-element";
+        dateEl.innerText = new Date(blog.date).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+        });
 
-        blogContainer.appendChild(titleDateContainer);
-        blogContainer.appendChild(tagsContainer);
-        blogContainer.appendChild(summaryElement);
+        entry.appendChild(left);
+        entry.appendChild(tagCell);
+        entry.appendChild(dateEl);
 
-        placeholder.appendChild(blogContainer);
-
-        const separator = document.createElement("div");
-        separator.className = "separator";
-        placeholder.appendChild(separator);
+        placeholder.appendChild(entry);
     });
 }
 
@@ -67,19 +87,75 @@ function renderFilter() {
     filterContainer.innerHTML = "";
 
     if (selectedTag) {
-        const filterPill = document.createElement("div");
-        filterPill.className = "filter-pill";
-        filterPill.innerText = `${tags[selectedTag]} ×`;
-        filterPill.onclick = () => {
+        const pill = document.createElement("div");
+        pill.className = "filter-pill";
+        pill.innerText = `Showing: ${tags[selectedTag]} ×`;
+        pill.onclick = () => {
             selectedTag = null;
+            renderTagButtons();
             renderFilter();
             generateBlogSummaries();
         };
-        filterContainer.appendChild(filterPill);
+        filterContainer.appendChild(pill);
     }
 }
 
+function toggleTheme() {
+    const html = document.documentElement;
+    const current = html.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    const color = next === 'dark' ? '#0c0c0c' : '#faf9f7';
+    const slatCount = 8;
+
+    const overlay = document.createElement('div');
+    overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:99999;pointer-events:none;display:flex;flex-direction:column;';
+
+    for (let i = 0; i < slatCount; i++) {
+        const slat = document.createElement('div');
+        slat.style.cssText = `flex:1;background:${color};transform:scaleY(0);transform-origin:top;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);transition-delay:${i * 0.03}s;`;
+        overlay.appendChild(slat);
+    }
+
+    document.body.appendChild(overlay);
+
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            overlay.querySelectorAll('div').forEach(slat => {
+                slat.style.transform = 'scaleY(1)';
+            });
+        });
+    });
+
+    setTimeout(() => {
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        document.querySelectorAll('.theme-toggle').forEach(btn => {
+            btn.textContent = next === 'dark' ? '☀️' : '🌙';
+        });
+
+        overlay.querySelectorAll('div').forEach((slat, i) => {
+            slat.style.transformOrigin = 'bottom';
+            slat.style.transitionDelay = `${i * 0.03}s`;
+            slat.style.transform = 'scaleY(0)';
+        });
+
+        setTimeout(() => overlay.remove(), 400);
+    }, slatCount * 30 + 300);
+}
+
+// Apply saved theme on load
+(function() {
+    const saved = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', saved);
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.theme-toggle').forEach(btn => {
+            btn.textContent = saved === 'dark' ? '☀️' : '🌙';
+        });
+    });
+})();
+
 window.onload = () => {
+    renderTagButtons();
     renderFilter();
     generateBlogSummaries();
 };

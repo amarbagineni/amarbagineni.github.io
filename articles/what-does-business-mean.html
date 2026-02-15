@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Does a Business Even Mean?.. Amar's Blog</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" type="text/css" href="../article.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav class="article-nav">
+    <a href="../index.html">&larr; Back to all posts</a>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">☀️</button>
+</nav>
+
+    <div class="article-header">
+        <div class="article-meta">
+            <span class="tag tag-4">Business</span>
+            <span class="article-date">February 16, 2026</span>
+        </div>
+        <h1>What Does a Business Even Mean?</h1>
+        <p class="article-desc">A note on curiosity, building, and the question of what a business really is.</p>
+    </div>
+
+    <div class="article-rule"><hr></div>
+
+    <div class="article-body">
+
+        <h1>The Builder's Question</h1>
+        <p>I've always been a builder. That's the part I know. Give me a problem, a system, a broken thing.. I'll figure out how to put it together. That instinct has never confused me.</p>
+        <p>About ten years ago, I was building applications as a freelancer for someone. That led to a small attempt at starting a company. It didn't become what I imagined, but the impulse was real.. the desire to make something, to see if it could stand on its own.</p>
+        <p>But there's another question that keeps running through my head, quietly, in the background of everything I build: what does a business even mean?</p>
+        <p>Not in the textbook sense. I know the definitions. Revenue, margins, value creation, all of that. The question is more personal than that. What does it mean to run one? What does it take? And more importantly.. what kind of person do you have to be?</p>
+
+        <h1>Watching a System Run</h1>
+        <p>When I joined Deloitte, I spent well over five years there. And there were many instances.. more than I can count.. where I would just sit in the main lobby, right in the middle of everything, and imagine all the things that might be going on inside that building. Every department, every floor, every conversation. The gears turning. The systems in place. I would visualize it in my head and just sit there for a while.</p>
+        <p>That's what amazed me.. that a system like this just works. Thousands of people, countless moving parts, and somehow it holds together. You only truly appreciate how smooth things are when you're inside a well-run machine. Because later, in other experiences, there are moments where things don't quite match up to the standards you've grown accustomed to. And that contrast is what teaches you. Not bitterness.. just clarity about what good looks like and how much effort it takes to maintain it.</p>
+
+        <h1>Different Segments, Different People</h1>
+        <p>The more I observe, the more I notice that different kinds of businesses require fundamentally different personalities to run them. The person who builds a great product company is not the same person who runs a great services firm. The founder who thrives in B2C chaos would suffocate in enterprise sales cycles. And someone who's wired for operations would lose their mind in a zero-to-one environment.</p>
+        <p>This isn't a judgment. It's just pattern recognition. And I find it fascinating.. the way a business becomes a mirror of the person running it. The decisions, the culture, the pace.. it all traces back to who's at the center.</p>
+
+        <h1>People Are the Most Interesting Part</h1>
+        <p>I find anything and everything interesting, but especially people. How they think, what drives them, what they optimise for when nobody's watching. And I've come to believe that the best way to observe people.. really observe them.. is through business. Business puts people in situations where their instincts show. How someone negotiates, how they handle a setback, how they treat the person who can do nothing for them. It's all visible if you're paying attention.</p>
+
+        <h1>A Note to Myself</h1>
+        <p>It will be nice to just build within one or just build one sometime. I don't know when, and I don't know what shape it'll take. But the curiosity is there, and it's not going away.</p>
+        <p>For now, learning is the way to go. Watching, reading, talking to people who've done it. Absorbing the patterns. Understanding not just the mechanics but the human side of it.. the part that no framework or playbook can fully capture.</p>
+        <p>This is just a small note. A timestamp on a thought that's been forming for a while. So that future me can look back and read this immature thought again.</p>
+
+    </div>
+
+    <div class="article-footer">
+        <div class="article-footer-inner">
+            <span>&copy; 2026</span>
+            <span class="footer-dot"></span>
+            <span>Amar Bagineni</span>
+        </div>
+    </div>
+    <script>
+function toggleTheme() {
+    const html = document.documentElement;
+    const current = html.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    document.querySelectorAll('.theme-toggle').forEach(btn => {
+        btn.textContent = next === 'dark' ? '☀️' : '🌙';
+    });
+}
+(function() {
+    const saved = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', saved);
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.theme-toggle').forEach(btn => {
+            btn.textContent = saved === 'dark' ? '☀️' : '🌙';
+        });
+    });
+})();
+</script>
+</body>
+</html>

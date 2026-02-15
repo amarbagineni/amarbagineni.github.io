@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manila &amp; Batangas: A Note on the Philippines — Amar's Blog</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" type="text/css" href="../article.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="article-nav">
+    <a href="../index.html">&larr; Back to all posts</a>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">☀️</button>
+</nav>
+
+    <div class="article-header">
+        <div class="article-meta">
+            <span class="tag tag-3">Travel and Food</span>
+            <span class="article-date">February 16, 2026</span>
+        </div>
+        <h1>Manila &amp; Batangas: A Note on the Philippines</h1>
+        <p class="article-desc">A personal note on Manila, Batangas, and the warmth of the Filipino people.</p>
+    </div>
+
+    <div class="article-rule"><hr></div>
+
+    <div class="article-body">
+
+        <h1>Arriving in Manila</h1>
+        <p>The first time I landed in Manila.. although there have been many trips since.. I arrived at the airport with no local currency and no idea where to go. And then, by pure luck, I met a stranger at the airport who happened to be heading in the same direction.. to Salcedo, where Somerset is. His building turned out to be right opposite mine. He gave me a ride, and that's the first time I got to see the streets of Manila. Through the window of a stranger's car, trusting the city before I even knew it. Looking back, that moment set the tone for every trip that followed.. the Philippines has a way of taking care of you before you even ask.</p>
+        <p>Somerset turned out to be a great base. Clean, central, and close enough to everything that mattered. From there, I spent a lot of time in BGC.. Bonifacio Global City.. and what struck me first was the architecture. The buildings have this mix of modern glass towers and well-designed public spaces that feel deliberate, like someone actually thought about how people would move through them. I found myself just looking up a lot, which I don't usually do in cities.</p>
+        <p>I visited the cathedral.. Manila Cathedral.. and there's something about standing inside a structure like that. The history, the silence in the middle of a loud city. It's grounding. I took pictures, but they don't really capture what it felt like to just be there.</p>
+
+        <h1>Walking Manila</h1>
+        <p>I spent time just walking along the marine drive, no particular destination. That's when you really feel a city. The breeze, the view, the pace of people around you. Manila has this energy that's hard to describe.. it's busy but not aggressive. People are going about their lives but there's a softness to it.</p>
+        <p>And there is amazing coffee everywhere. I love coffee, and Manila delivers. Whether it's a small corner shop or a proper café in BGC, the quality is consistently good. It became a ritual.. walk, find coffee, sit, watch the city move.</p>
+        <p>And this is where I want to note something that genuinely surprised me: the people. I have traveled to a few places, and I can say with confidence that the Filipino people are among the most helpful and accommodative I've ever encountered. It's not performative. It's not transactional. There is a genuine niceness in the air. You ask for directions and someone walks you halfway there. You look confused at a menu and the server patiently explains everything with a smile. It's a cultural thing, and it's beautiful.</p>
+
+        <h1>Batangas</h1>
+        <p>Then came Batangas. I stayed at a beach house arranged through Mr. Ferdinand Saputil.. Ferdie. The house, the setting, the water.. it was exactly the kind of escape you don't know you need until you're in it. Waking up to the sound of waves, no agenda, no rush.</p>
+        <p>Ferdie took us to breakfast at Antonio's.. one of those meals where the food is so good that you slow down and actually pay attention to every bite. It set the tone for the day. He's also a biker, owns a BMW. Nearby, there's a volcano.. one of those things you notice and photograph because it's unexpected and oddly charming against the landscape.</p>
+        <p>Alvin, Angelo, and Ryn were helpful throughout the entire trip. Whether it was logistics, recommendations, or just making sure everything ran smoothly.. they made the experience what it was. There's a difference between a trip going well because you planned it perfectly and a trip going well because the people around you genuinely care. This was the latter.</p>
+
+        <h1>A Note to Myself</h1>
+        <p>I'm writing this because I want to remember. Not just the places or the pictures, but the feeling. The energy of kindness that I felt consistently.. from the hotel staff to strangers on the street to Ferdie and the entire group.</p>
+        <p>The Philippines is one of those places where you leave feeling like you received more than you gave. The warmth is real. The hospitality is not a tourist industry trick.. it's just how people are.</p>
+        <p>This was memorable. All of it. The walks, the views, the conversations, the quiet moments by the water. I would like to do this again sometime. And when I do, I hope it feels exactly like this.</p>
+        <p>Until then, this note stays here.. so future me can read it and remember what it felt like to be there.</p>
+
+    </div>
+
+    <div class="article-footer">
+        <div class="article-footer-inner">
+            <span>&copy; 2026</span>
+            <span class="footer-dot"></span>
+            <span>Amar Bagineni</span>
+        </div>
+    </div>
+
+    <script>
+function toggleTheme() {
+    const html = document.documentElement;
+    const current = html.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    document.querySelectorAll('.theme-toggle').forEach(btn => {
+        btn.textContent = next === 'dark' ? '☀️' : '🌙';
+    });
+}
+(function() {
+    const saved = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', saved);
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.theme-toggle').forEach(btn => {
+            btn.textContent = saved === 'dark' ? '☀️' : '🌙';
+        });
+    });
+})();
+</script>
+</body>
+</html>

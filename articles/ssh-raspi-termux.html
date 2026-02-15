@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSH into Raspberry Pi from Android Termux via Cloudflare Tunnel.. Amar's Blog</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" type="text/css" href="../article.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="article-nav">
+    <a href="../index.html">&larr; Back to all posts</a>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">☀️</button>
+</nav>
+
+
+    <div class="article-header">
+        <div class="article-meta">
+            <span class="tag tag-2">Software, data and applications</span>
+            <span class="article-date">February 16, 2026</span>
+        </div>
+        <h1>SSH into Raspberry Pi from Android Termux via Cloudflare Tunnel</h1>
+        <p class="article-desc">Connect to your home Raspberry Pi from your phone using Termux, cloudflared, and a proot Alpine Linux environment.</p>
+    </div>
+
+    <div class="article-rule"><hr></div>
+
+    <div class="article-body">
+
+        <h1>Background</h1>
+        <p>If you already SSH into your Raspberry Pi from a Mac using a Cloudflare Tunnel with a <code>ProxyCommand</code> in your SSH config, you might want the same access from your Android phone. The challenge is that <strong>cloudflared doesn't run natively in Termux</strong>.. Termux's linker can't handle standard Linux ELF binaries, giving you the dreaded <code>unexpected e_type: 2</code> error.</p>
+        <p>The fix: run cloudflared inside an <strong>Alpine Linux proot environment</strong> within Termux.</p>
+
+        <h1>Prerequisites</h1>
+        <ul>
+            <li>🍓 Raspberry Pi with a Cloudflare Tunnel running</li>
+            <li>📱 Android phone with Termux installed</li>
+            <li>💻 A Mac (or other machine) that can already SSH into the Pi</li>
+        </ul>
+
+        <h1>Step 1: Install proot-distro & Alpine</h1>
+        <p>Since cloudflared binaries won't run directly in Termux, we install a lightweight Linux distro via proot-distro.</p>
+        <pre><code>pkg update
+pkg install proot-distro
+proot-distro install alpine</code></pre>
+
+        <h1>Step 2: Install cloudflared inside Alpine</h1>
+        <p>Log into the Alpine environment and download the cloudflared binary manually, since it's not available in Alpine's package repos.</p>
+        <pre><code>proot-distro login alpine
+apk add wget
+wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64
+chmod +x cloudflared-linux-arm64
+mv cloudflared-linux-arm64 /usr/local/bin/cloudflared</code></pre>
+        <p>Verify it works:</p>
+        <pre><code>cloudflared --version</code></pre>
+        <blockquote><p>✅ If you see a version number, cloudflared is working. Type <code>exit</code> to return to Termux.</p></blockquote>
+        <blockquote><p>⚠️ If your device is older / 32-bit ARM, use <code>cloudflared-linux-arm</code> instead of <code>cloudflared-linux-arm64</code>.</p></blockquote>
+
+        <h1>Step 3: Generate an SSH key in Termux</h1>
+        <p>Back in Termux (not Alpine), generate an SSH key pair if you don't already have one:</p>
+        <pre><code>ssh-keygen -t ed25519</code></pre>
+        <p>Press Enter to accept defaults. Then view your public key:</p>
+        <pre><code>cat ~/.ssh/id_ed25519.pub</code></pre>
+        <p>Copy this entire output - you'll need it in the next step.</p>
+
+        <h1>Step 4: Add the public key to your Raspberry Pi</h1>
+        <p>From your <strong>Mac</strong> (or any machine that already has SSH access to the Pi), add the Termux public key to the Pi's authorized keys:</p>
+        <pre><code>ssh raspi.nayeli.in "echo 'YOUR_TERMUX_PUBLIC_KEY' >> ~/.ssh/authorized_keys"</code></pre>
+        <blockquote><p>📋 Replace <code>YOUR_TERMUX_PUBLIC_KEY</code> with the full output from <code>cat ~/.ssh/id_ed25519.pub</code> on Termux.</p></blockquote>
+
+        <h1>Step 5: Configure SSH in Termux</h1>
+        <pre><code>mkdir -p ~/.ssh
+vi ~/.ssh/config</code></pre>
+        <p>Add the following:</p>
+        <pre><code>Host raspi.nayeli.in
+    User pi
+    IdentityFile ~/.ssh/id_ed25519
+    ProxyCommand proot-distro login alpine -- cloudflared access ssh --hostname %h</code></pre>
+
+        <h1>Step 6: Connect!</h1>
+        <pre><code>ssh raspi.nayeli.in</code></pre>
+        <blockquote><p>🎉 You should now be connected to your Raspberry Pi from your phone.</p></blockquote>
+
+        <h1>Troubleshooting</h1>
+        <p><strong><code>unexpected e_type: 2</code></strong> — You're trying to run cloudflared directly in Termux. Make sure you're running it inside the Alpine proot environment.</p>
+        <p><strong><code>Permission denied (publickey)</code></strong> — Your Termux public key hasn't been added to the Pi's <code>~/.ssh/authorized_keys</code>. Follow Step 4.</p>
+        <p><strong>Cloudflare Access login prompt</strong> — If your tunnel uses Cloudflare Access authentication, install the <code>termux-api</code> package and the Termux:API app so the browser can open for login.</p>
+
+    </div>
+
+    <div class="article-footer">
+        <div class="article-footer-inner">
+            <span>&copy; 2026</span>
+            <span class="footer-dot"></span>
+            <span>Amar Bagineni</span>
+        </div>
+    </div>
+    <script>
+function toggleTheme() {
+    const html = document.documentElement;
+    const current = html.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    document.querySelectorAll('.theme-toggle').forEach(btn => {
+        btn.textContent = next === 'dark' ? '☀️' : '🌙';
+    });
+}
+(function() {
+    const saved = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', saved);
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.theme-toggle').forEach(btn => {
+            btn.textContent = saved === 'dark' ? '☀️' : '🌙';
+        });
+    });
+})();
+</script>
+</body>
+</html>
