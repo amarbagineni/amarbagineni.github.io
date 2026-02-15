@@ -8,6 +8,14 @@
 
 var myStructure = [
    {
+       id: "7",
+       title: "The Future of Software: A Car, Not a Teleportation Machine",
+       tags: [2],
+       link: "https://handy-iguanadon-b8c.notion.site/The-Future-of-Software-A-Car-Not-a-Teleportation-Machine-3084bb8b79ce81a8a1c2d0fff86bb156",
+       date: "February 16, 2026 3:00 AM",
+       summary: "A reflection on AI tools, software economics, and why human ingenuity still matters."
+   },
+   {
         id: "0",
         title: "SSH into Raspberry Pi from Android Termux via Cloudflare Tunnel",
         tags: [2],
@@ -33,26 +41,26 @@ var myStructure = [
     },
     {
         id: "3",
-        title: "The Future of Software",
-        tags: [2],
-        link: "https://handy-iguanadon-b8c.notion.site/The-future-of-software-a3f79362768747ab8a7375b9d9e40cf4",
-        date: "July 28, 2024 4:22 PM",
-        summary: "An exploration of emerging trends in software development, focusing on new paradigms that are shaping the future of technology."
-    },
-    {
-        id: "3",
-        title: "A Culinary Journey",
+        title: "Manila & Batangas: A Note on the Philippines",
         tags: [3],
-        link: "https://handy-iguanadon-b8c.notion.site/A-culinary-journey-a3f79362768747ab8a7375b9d9e40cf5",
-        date: "June 15, 2024 2:15 PM",
-        summary: "Join me on a journey through flavors and cultures as I explore the world through food and travel, savoring each moment and taste."
+        link: "https://handy-iguanadon-b8c.notion.site/Manila-Batangas-A-Note-on-the-Philippines-3084bb8b79ce8121b342e8801a014d91",
+        date: "July 29, 2024 2:15 PM",
+        summary: "A personal note on Manila, Batangas, and the warmth of the Filipino people.."
     },
     {
         id: "4",
-        title: "Building a Business",
+        title: "What Does a Business Even Mean?",
         tags: [4],
-        link: "https://handy-iguanadon-b8c.notion.site/Building-a-business-a3f79362768747ab8a7375b9d9e40cf6",
+        link: "https://handy-iguanadon-b8c.notion.site/What-Does-a-Business-Even-Mean-3084bb8b79ce81d9a7aec4796cd1cc1a",
         date: "May 22, 2024 11:05 AM",
-        summary: "Insights and strategies for aspiring entrepreneurs looking to build a successful business from the ground up."
+        summary: "A note on curiosity, building, and the question of what a business really is."
+    },
+      {
+        id: "6",
+        title: "Bangalore (and Mumbai)",
+        tags: [3],
+        link: "https://handy-iguanadon-b8c.notion.site/Bangalore-and-Mumbai-3084bb8b79ce81a5a799d6e1db43aa13",
+        date: "May 22, 2024 11:05 AM",
+        summary: "A personal note on why Bangalore"
     }
 ];
