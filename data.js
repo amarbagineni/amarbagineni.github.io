@@ -6,6 +6,15 @@ var tags = {
 };
 
 var myStructure = [
+        {
+        id: "3",
+        title: "The Future of Software: A Car, Not a Teleportation Machine",
+        tags: [2],
+        link: "https://handy-iguanadon-b8c.notion.site/The-Future-of-Software-A-Car-Not-a-Teleportation-Machine-3084bb8b79ce81a8a1c2d0fff86bb156",
+        localLink: "articles/future-of-software.html",
+        date: "February 16, 2026 12:00 AM",
+        summary: "A reflection on AI tools, software economics, and why human ingenuity still matters."
+    },
     {
         id: "0",
         title: "SSH into Raspberry Pi from Android Termux via Cloudflare Tunnel",
@@ -32,15 +41,6 @@ var myStructure = [
         localLink: "articles/canvas-of-thoughts.html",
         date: "August 11, 2024 9:05 PM",
         summary: "Delve into the intricate patterns of the human mind, where thoughts flow like paint on a canvas."
-    },
-    {
-        id: "3",
-        title: "The Future of Software: A Car, Not a Teleportation Machine",
-        tags: [2],
-        link: "https://handy-iguanadon-b8c.notion.site/The-Future-of-Software-A-Car-Not-a-Teleportation-Machine-3084bb8b79ce81a8a1c2d0fff86bb156",
-        localLink: "articles/future-of-software.html",
-        date: "February 16, 2026 12:00 AM",
-        summary: "A reflection on AI tools, software economics, and why human ingenuity still matters."
     },
     {
         id: "4",
