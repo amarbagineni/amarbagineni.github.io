@@ -6,6 +6,15 @@ var tags = {
 };
 
 var myStructure = [
+    {
+        id: "7",
+        title: "AI climbed the first half of Bloom's ladder. The rest is human work.",
+        tags: [1],
+        link: "https://www.greyquill.io/dc/blogs/blooms-ladder.html",
+        localLink: "articles/blooms-taxonomy.html",
+        date: "July 15, 2026 9:45 PM",
+        summary: "AI handles the lower half of Bloom's taxonomy: remember, understand, apply. Judgment and creation are still ours."
+    },
         {
         id: "3",
         title: "The Future of Software: A Car, Not a Teleportation Machine",

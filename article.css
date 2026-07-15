@@ -206,3 +206,9 @@
         padding-right: 1.25rem;
     }
 }
+
+/* images / figures (added for the Bloom's taxonomy post) */
+.article-body figure { margin: 1.75rem 0; }
+.article-body figure img { max-width: 100%; height: auto; display: block; }
+.article-body figure.panel { background: #fff; border: 1px solid var(--rule); border-radius: 6px; padding: 1rem; }
+.article-body figcaption { font-size: 0.85rem; color: var(--text-dim); margin-top: 0.5rem; }
